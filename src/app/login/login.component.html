@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+      <div class="col l12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-title">
+              What is your name?
+            </div>
+            <form (ngSubmit)="login()">
+              <div class="row">
+                <div class="col l12">
+                  <input id="username" name="username" placeholder="Type here your name..." type="text"
+                    [(ngModel)]="username" />
+                  <button class="waves-effect waves-light btn" id="submitButton" name="submitButton" type="submit">
+                    This is my name <i class="material-icons right">send</i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

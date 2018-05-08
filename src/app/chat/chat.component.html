@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="menu">
+    <div class="back" [routerLink]="['/']"><i class="fa fa-chevron-left"></i> <img src="https://i.imgur.com/DY6gND0.png" draggable="false"/></div>
+    <div class="name">{{username}}</div>
+    <div class="last" *ngIf="messages.length > 0">{{messages[messages.length-1].datetime | date: 'HH:mm'}}</div>
+    <div class="last" *ngIf="messages.length === 0">{{currentTime | date: 'HH:mm'}}</div>
+  </div>
+  <ol class="chat">
+    <li *ngFor="let msg of messages" [ngClass]="getClass(msg)">
+      <div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false"/></div>
+      <div class="msg">
+        <b *ngIf="msg.username !== username">{{msg.username}}</b>
+        <p>{{msg.text}}</p>
+        <time>{{msg.datetime | date: 'dd/MM/yyyy HH:mm'}}</time>
+      </div>
+    </li>
+  </ol>
+  <form (ngSubmit)="send()">
+    <input class="textarea" name="message" [(ngModel)]="message" type="text" placeholder="Type here!"/>
+  </form>
+</div>
